@@ -19,19 +19,24 @@ class _GenderSelectorState extends State<GenderSelector> {
         //Hombre
         Expanded(
           child: GestureDetector(
-            onTap: (){
-              setState((){
+            onTap: () {
+              setState(() {
                 selectedGender = "Hombre";
               });
             },
             child: Padding(
-              padding: const EdgeInsets.only(left: 16, top: 16, bottom: 16, right: 8),
+              padding: const EdgeInsets.only(
+                left: 16,
+                top: 16,
+                bottom: 16,
+                right: 8,
+              ),
               child: Container(
                 decoration: BoxDecoration(
-                  color: selectedGender == "Hombre" 
-                  ? AppColors.backgroundComponentSelected
-                  : AppColors.backgroundComponent,
-                  borderRadius: BorderRadius.circular(16)
+                  color: selectedGender == "Hombre"
+                      ? AppColors.backgroundComponentSelected
+                      : AppColors.backgroundComponent,
+                  borderRadius: BorderRadius.circular(16),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(12),
@@ -50,19 +55,24 @@ class _GenderSelectorState extends State<GenderSelector> {
         //Mujer
         Expanded(
           child: GestureDetector(
-            onTap: (){
-              setState((){
+            onTap: () {
+              setState(() {
                 selectedGender = "Mujer";
               });
             },
             child: Padding(
-              padding: const EdgeInsets.only(top: 16, bottom: 16, right: 16, left: 8),
+              padding: const EdgeInsets.only(
+                top: 16,
+                bottom: 16,
+                right: 16,
+                left: 8,
+              ),
               child: Container(
                 decoration: BoxDecoration(
                   color: selectedGender == "Mujer"
-                  ? AppColors.backgroundComponentSelected
-                  : AppColors.backgroundComponent,
-                  borderRadius: BorderRadius.circular(16)
+                      ? AppColors.backgroundComponentSelected
+                      : AppColors.backgroundComponent,
+                  borderRadius: BorderRadius.circular(16),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(12),

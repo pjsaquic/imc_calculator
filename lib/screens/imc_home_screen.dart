@@ -4,6 +4,7 @@ import 'package:imc_calculator/components/height_selector.dart';
 import 'package:imc_calculator/components/number_selector.dart';
 import 'package:imc_calculator/core/text_styles.dart';
 import 'package:imc_calculator/core/app_colors.dart';
+import 'package:imc_calculator/screens/imc_result_screen.dart';
 
 class ImcHomeScreen extends StatefulWidget {
   const ImcHomeScreen({super.key});
@@ -15,13 +16,21 @@ class ImcHomeScreen extends StatefulWidget {
 class _ImcHomeScreenState extends State<ImcHomeScreen> {
   int selectedAge = 80;
   int selectedWeight = 20;
+  double selectedHeight = 160;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         GenderSelector(),
-        HeightSelector(),
+        HeightSelector(
+          selectedHeight: selectedHeight,
+          onHeightChange: (newHeight) {
+            setState(() {
+              selectedHeight = newHeight;
+            });
+          },
+        ),
         Padding(
           padding: const EdgeInsets.all(16),
           child: Row(
@@ -69,7 +78,15 @@ class _ImcHomeScreenState extends State<ImcHomeScreen> {
             height: 60,
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ImcResultScreen(
+                    height: selectedHeight,
+                    weight: selectedWeight
+                  )),
+                );
+              },
               style: ButtonStyle(
                 shape: WidgetStateProperty.all(
                   RoundedRectangleBorder(
